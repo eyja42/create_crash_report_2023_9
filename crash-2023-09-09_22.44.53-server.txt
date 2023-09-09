@@ -1,0 +1,241 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 2023-09-09 22:44:53
+Description: Ticking block entity
+
+java.lang.IllegalArgumentException: Transfer variant may not be blank.
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlank(StoragePreconditions.java:39)
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlankNotNegative(StoragePreconditions.java:58)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:136)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:42)
+	at io.github.fabricators_of_create.porting_lib.transfer.TransferUtil.clearStorage(TransferUtil.java:343)
+	at com.simibubi.create.content.contraptions.MountedStorageManager.clear(MountedStorageManager.java:189)
+	at com.simibubi.create.content.contraptions.Contraption.addBlocksToWorld(Contraption.java:1132)
+	at com.simibubi.create.content.contraptions.AbstractContraptionEntity.disassemble(AbstractContraptionEntity.java:667)
+	at com.simibubi.create.content.contraptions.AbstractContraptionEntity.disassemble(AbstractContraptionEntity.java:679)
+	at com.simibubi.create.content.contraptions.OrientedContraptionEntity.method_5848(OrientedContraptionEntity.java:156)
+	at net.minecraft.class_1297.method_5772(class_1297.java:2138)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.disassembleCart(CartAssemblerBlockEntity.java:223)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.disassemble(CartAssemblerBlockEntity.java:193)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.tryAssemble(CartAssemblerBlockEntity.java:86)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.tick(CartAssemblerBlockEntity.java:65)
+	at com.simibubi.create.foundation.blockEntity.SmartBlockEntityTicker.tick(SmartBlockEntityTicker.java:15)
+	at net.minecraft.class_2818$class_5563.method_31703(class_2818.java:662)
+	at net.minecraft.class_2818$class_5564.method_31703(class_2818.java:716)
+	at net.minecraft.class_1937.method_18471(class_1937.java:470)
+	at net.minecraft.class_3218.method_18765(class_3218.java:390)
+	at net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:897)
+	at net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:824)
+	at net.minecraft.class_1132.method_3748(class_1132.java:105)
+	at net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:671)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlank(StoragePreconditions.java:39)
+	at net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions.notBlankNotNegative(StoragePreconditions.java:58)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:136)
+	at net.fabricmc.fabric.api.transfer.v1.item.base.SingleStackStorage.extract(SingleStackStorage.java:42)
+	at io.github.fabricators_of_create.porting_lib.transfer.TransferUtil.clearStorage(TransferUtil.java:343)
+	at com.simibubi.create.content.contraptions.MountedStorageManager.clear(MountedStorageManager.java:189)
+	at com.simibubi.create.content.contraptions.Contraption.addBlocksToWorld(Contraption.java:1132)
+	at com.simibubi.create.content.contraptions.AbstractContraptionEntity.disassemble(AbstractContraptionEntity.java:667)
+	at com.simibubi.create.content.contraptions.AbstractContraptionEntity.disassemble(AbstractContraptionEntity.java:679)
+	at com.simibubi.create.content.contraptions.OrientedContraptionEntity.method_5848(OrientedContraptionEntity.java:156)
+	at net.minecraft.class_1297.method_5772(class_1297.java:2138)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.disassembleCart(CartAssemblerBlockEntity.java:223)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.disassemble(CartAssemblerBlockEntity.java:193)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.tryAssemble(CartAssemblerBlockEntity.java:86)
+	at com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity.tick(CartAssemblerBlockEntity.java:65)
+	at com.simibubi.create.foundation.blockEntity.SmartBlockEntityTicker.tick(SmartBlockEntityTicker.java:15)
+	at net.minecraft.class_2818$class_5563.method_31703(class_2818.java:662)
+	at net.minecraft.class_2818$class_5564.method_31703(class_2818.java:716)
+	at net.minecraft.class_1937.method_18471(class_1937.java:470)
+	at net.minecraft.class_3218.method_18765(class_3218.java:390)
+
+-- Block entity being ticked --
+Details:
+	Name: create:cart_assembler // com.simibubi.create.content.contraptions.mounted.CartAssemblerBlockEntity
+	Block: Block{create:cart_assembler}[backwards=true,powered=false,rail_type=controller_rail,shape=east_west,waterlogged=false]
+	Block location: World: (4,-58,10), Section: (at 4,6,10 in 0,-4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Block: Block{create:cart_assembler}[backwards=true,powered=false,rail_type=controller_rail,shape=east_west,waterlogged=false]
+	Block location: World: (4,-58,10), Section: (at 4,6,10 in 0,-4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+Stacktrace:
+	at net.minecraft.class_2818$class_5563.method_31703(class_2818.java:662)
+	at net.minecraft.class_2818$class_5564.method_31703(class_2818.java:716)
+	at net.minecraft.class_1937.method_18471(class_1937.java:470)
+	at net.minecraft.class_3218.method_18765(class_3218.java:390)
+	at net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:897)
+	at net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:824)
+	at net.minecraft.class_1132.method_3748(class_1132.java:105)
+	at net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:671)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+-- Affected level --
+Details:
+	All players: 1 total; [class_3222['eyja42'/1, l='ServerLevel[test world]', x=3.07, y=-58.17, z=7.87]]
+	Chunk stats: 2809
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,-60,0), Section: (at 0,4,0 in 0,-4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 3797 game time, 3797 day time
+	Level name: test world
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+	Level weather: Rain time: 51329 (now: false), thunder time: 174437 (now: false)
+	Known server brands: fabric
+	Removed feature flags: 
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:897)
+	at net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:824)
+	at net.minecraft.class_1132.method_3748(class_1132.java:105)
+	at net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:671)
+	at net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:265)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.8, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Microsoft
+	Memory: 660000384 bytes (629 MiB) / 1610612736 bytes (1536 MiB) up to 7650410496 bytes (7296 MiB)
+	CPUs: 16
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 7 5800H with Radeon Graphics         
+	Identifier: AuthenticAMD Family 25 Model 80 Stepping 0
+	Microarchitecture: Zen 3
+	Frequency (GHz): 3.19
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 16
+	Graphics card #0 name: NVIDIA GeForce RTX 3060 Laptop GPU
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x2560
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.2799
+	Graphics card #1 name: AMD Radeon(TM) Graphics
+	Graphics card #1 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #1 VRAM (MB): 4095.00
+	Graphics card #1 deviceId: 0x1638
+	Graphics card #1 versionInfo: DriverVersion=31.0.12044.3
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 16384.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 23404.06
+	Virtual memory used (MB): 15756.97
+	Swap memory total (MB): 3072.00
+	Swap memory used (MB): 50.75
+	JVM Flags: 11 total; -Xmx7277m -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32m -XX:-UseAdaptiveSizePolicy -XX:-OmitStackTraceInFastThrow -XX:-DontCompileHugeMethods -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Fabric Mods: 
+		create: Create 0.5.1-d-build.1161+mc1.20.1
+			com_electronwill_night-config_core: core 3.6.3
+			com_electronwill_night-config_toml: toml 3.6.3
+			com_google_code_findbugs_jsr305: jsr305 3.0.2
+			flywheel: Flywheel 0.6.9-1
+			forgeconfigapiport: Forge Config API Port 8.0.0
+			milk: Milk Lib 1.2.60
+				dripstone_fluid_lib: Dripstone Fluid Lib 3.0.2
+			porting_lib_accessors: Porting Lib Accessors 2.1.1127+1.20
+			porting_lib_base: Porting Lib Base 2.1.1127+1.20
+				porting_lib_lazy_registration: Porting Lib Lazy Register 2.1.1127+1.20
+				porting_lib_utility: Porting Lib Utility 2.1.1127+1.20
+			porting_lib_brewing: Porting Lib Brewing 2.1.1127+1.20
+			porting_lib_client_events: Porting Lib Client Events 2.1.1127+1.20
+				com_github_llamalad7_mixinextras: MixinExtras 0.2.0-beta.8
+				mm: Manningham Mills 2.3
+				porting_lib_core: Porting Lib Core 2.1.1127+1.20
+				porting_lib_gametest: Porting Lib GameTest 2.1.1127+1.20
+			porting_lib_entity: Porting Lib Entity 2.1.1127+1.20
+				porting_lib_mixin_extensions: Porting Lib Mixin Extensions 2.1.1127+1.20
+			porting_lib_extensions: Porting Lib Extensions 2.1.1127+1.20
+				porting_lib_attributes: Porting Lib Attributes 2.1.1127+1.20
+				porting_lib_common: Porting Lib Common 2.1.1127+1.20
+			porting_lib_fake_players: Porting Lib Fake Players 2.1.1127+1.20
+			porting_lib_models: Porting Lib Models 2.1.1127+1.20
+			porting_lib_networking: Porting Lib Networking 2.1.1127+1.20
+			porting_lib_obj_loader: Porting Lib Obj Loader 2.1.1127+1.20
+				porting_lib_model_loader: Porting Lib Model Loader 2.1.1127+1.20
+			porting_lib_tags: Porting Lib Tags 3.0
+			porting_lib_tool_actions: Porting Lib Tool Actions 2.1.1127+1.20
+			porting_lib_transfer: Porting Lib Transfer 2.1.1127+1.20
+			reach-entity-attributes: Reach Entity Attributes 2.4.0
+			registrate-fabric: Registrate for Fabric 1.3.62-MC1.20.1
+				porting_lib_data: Porting Lib Data 2.1.1090+1.20
+				porting_lib_model_generators: Porting Lib Model Generators 2.1.1090+1.20
+					porting_lib_model_materials: Porting Lib Model Materials 2.1.1090+1.20
+		fabric-api: Fabric API 0.86.1+1.20.1
+			fabric-api-base: Fabric API Base 0.4.30+7abfd51577
+			fabric-api-lookup-api-v1: Fabric API Lookup API (v1) 1.6.35+4d8536c977
+			fabric-biome-api-v1: Fabric Biome API (v1) 13.0.10+b3afc78b77
+			fabric-block-api-v1: Fabric Block API (v1) 1.0.9+e022e5d177
+			fabric-blockrenderlayer-v1: Fabric BlockRenderLayer Registration (v1) 1.1.40+b3afc78b77
+			fabric-client-tags-api-v1: Fabric Client Tags 1.1.1+97bb207577
+			fabric-command-api-v1: Fabric Command API (v1) 1.2.33+f71b366f77
+			fabric-command-api-v2: Fabric Command API (v2) 2.2.12+b3afc78b77
+			fabric-commands-v0: Fabric Commands (v0) 0.2.50+df3654b377
+			fabric-containers-v0: Fabric Containers (v0) 0.1.62+df3654b377
+			fabric-content-registries-v0: Fabric Content Registries (v0) 4.0.9+b3afc78b77
+			fabric-convention-tags-v1: Fabric Convention Tags 1.5.4+a1a980da77
+			fabric-crash-report-info-v1: Fabric Crash Report Info (v1) 0.2.18+aeb40ebe77
+			fabric-data-generation-api-v1: Fabric Data Generation API (v1) 12.2.1+1e61dba177
+			fabric-dimensions-v1: Fabric Dimensions API (v1) 2.1.52+b3afc78b77
+			fabric-entity-events-v1: Fabric Entity Events (v1) 1.5.22+b3afc78b77
+			fabric-events-interaction-v0: Fabric Events Interaction (v0) 0.6.1+e91849a877
+			fabric-events-lifecycle-v0: Fabric Events Lifecycle (v0) 0.2.62+df3654b377
+			fabric-game-rule-api-v1: Fabric Game Rule API (v1) 1.0.38+b04edc7a77
+			fabric-item-api-v1: Fabric Item API (v1) 2.1.27+b3afc78b77
+			fabric-item-group-api-v1: Fabric Item Group API (v1) 4.0.10+23d9108177
+			fabric-key-binding-api-v1: Fabric Key Binding API (v1) 1.0.36+fb8d95da77
+			fabric-keybindings-v0: Fabric Key Bindings (v0) 0.2.34+df3654b377
+			fabric-lifecycle-events-v1: Fabric Lifecycle Events (v1) 2.2.21+b3afc78b77
+			fabric-loot-api-v2: Fabric Loot API (v2) 1.1.39+b3afc78b77
+			fabric-loot-tables-v1: Fabric Loot Tables (v1) 1.1.43+9e7660c677
+			fabric-message-api-v1: Fabric Message API (v1) 5.1.7+3265161977
+			fabric-mining-level-api-v1: Fabric Mining Level API (v1) 2.1.49+b3afc78b77
+			fabric-model-loading-api-v1: Fabric Model Loading API (v1) 1.0.2+709a987177
+			fabric-models-v0: Fabric Models (v0) 0.4.1+9386d8a777
+			fabric-networking-api-v1: Fabric Networking API (v1) 1.3.9+b3afc78b77
+			fabric-networking-v0: Fabric Networking (v0) 0.3.49+df3654b377
+			fabric-object-builder-api-v1: Fabric Object Builder API (v1) 11.1.1+6beca84877
+			fabric-particles-v1: Fabric Particles (v1) 1.1.1+201a23a077
+			fabric-recipe-api-v1: Fabric Recipe API (v1) 1.0.19+b3afc78b77
+			fabric-registry-sync-v0: Fabric Registry Sync (v0) 2.3.1+4df89eb277
+			fabric-renderer-api-v1: Fabric Renderer API (v1) 3.1.1+9386d8a777
+			fabric-renderer-indigo: Fabric Renderer - Indigo 1.4.1+9172968c77
+			fabric-renderer-registries-v1: Fabric Renderer Registries (v1) 3.2.45+df3654b377
+			fabric-rendering-data-attachment-v1: Fabric Rendering Data Attachment (v1) 0.3.34+b3afc78b77
+			fabric-rendering-fluids-v1: Fabric Rendering Fluids (v1) 3.0.27+b3afc78b77
+			fabric-rendering-v0: Fabric Rendering (v0) 1.1.48+df3654b377
+			fabric-rendering-v1: Fabric Rendering (v1) 3.0.7+b3afc78b77
+			fabric-resource-conditions-api-v1: Fabric Resource Conditions API (v1) 2.3.5+ea08f9d877
+			fabric-resource-loader-v0: Fabric Resource Loader (v0) 0.11.9+132c48c177
+			fabric-screen-api-v1: Fabric Screen API (v1) 2.0.7+b3afc78b77
+			fabric-screen-handler-api-v1: Fabric Screen Handler API (v1) 1.3.28+b3afc78b77
+			fabric-sound-api-v1: Fabric Sound API (v1) 1.0.12+b3afc78b77
+			fabric-transfer-api-v1: Fabric Transfer API (v1) 3.3.0+cdf060b277
+			fabric-transitive-access-wideners-v1: Fabric Transitive Access Wideners (v1) 4.3.0+6c31357e77
+		fabricloader: Fabric Loader 0.14.21
+		java: OpenJDK 64-Bit Server VM 17
+		minecraft: Minecraft 1.20.1
+	Flywheel Backend: GL33 Instanced Arrays
+	Server Running: true
+	Player Count: 1 / 8; [class_3222['eyja42'/1, l='ServerLevel[test world]', x=3.07, y=-58.17, z=7.87]]
+	Data Packs: vanilla, fabric
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fabric'; Server brand changed to 'fabric'
+	Launched Version: 1.20.1_BasicPackage
